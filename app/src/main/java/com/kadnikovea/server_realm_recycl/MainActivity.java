@@ -116,10 +116,7 @@ public class MainActivity extends AppCompatActivity implements MyAdapter.ClickRe
 
     private void firtActions() {
         realm.executeTransaction(realm1 -> {
-            //добавить в бд имена с сервера
-            addNamesFromServ();
             realmResults=realm.where(MyBook.class).findAll();
-
             if(!realmResults.isEmpty()) {
             for (int i = 0; i < realmResults.size(); i++) {
                 titles.add(realmResults.get(i).getTitle());
@@ -130,13 +127,6 @@ public class MainActivity extends AppCompatActivity implements MyAdapter.ClickRe
         checkTitlesAreEmpty();
         //recyclerView.setAdapter(myAdapter);
     }
-
-
-    //добавить в бд имена с сервера
-    private void addNamesFromServ() {
-
-    }
-
     private void addLoadListener(){
         load.setOnClickListener(new View.OnClickListener() {
             @Override
